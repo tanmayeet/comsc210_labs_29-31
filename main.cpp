@@ -8,11 +8,13 @@
 //  -current time period
 
 // Logic
+// Begin a time-based simulation for astronmical changes for 50 time intervals
 //   -For each zone:
+//       -Simulate astronomical changes holistically
 //       -Randomly pick one of the three categories
 //       -Randomly decide whether to add or remove an object
-//       -If adding: create a new event and put it in the list
-//       -If removing: randomly pick one from the list and remove it
+//       -If adding: create a new celestial body and put it in the list
+//       -If removing: randomly pick a body from the list and remove it
 //       -Print out what occured during that time period
 
 // Main function
@@ -32,19 +34,11 @@
 
 // 5) Close the file
 
-// Begin a time-based simulation for astronmical changes
-// For 50 time intervals
-// Iterate through each solar system zone in the map
-// For each zone, simulate astronomical changes
-// Randomly decide if a celestial body is to be added or removed from each
-// category (stars, planets, black holes)
-// If adding, generate or select a new celestial body's name to add to the list
-// If removing, select a random body to remove from the list
-// Print changes for this interval
-
 // Simulate more complex astronomical changes like random events impacting the
 // solar system, eclipses, meteor showers, etc.
+
 // Wait or pause briefly to simulate the passage of time between intervals
+
 // End of main function
 
 #include <array>
@@ -75,4 +69,15 @@ int main() {
   solarMap["Kuiper Belt"][2].push_back("");
 
   // Displaying intial state
-  for (const auto&) }
+  for (const auto& [zone, bodies] : solarMap) {
+    cout << "Zone: " << zone << "\n";
+    cout << "Stars: " << bodies[0].front() << "\n";
+    cout << "Planets: " << bodies[1].front() << "\n";
+    cout << "Black Holes: " << bodies[2].front() << "\n";
+  }
+  // Simulating for 50 time periods
+  for (int i = 1; i <= 50; i++) {
+    simulateTimePeriod(solarMap, i);
+  }
+  return 0;
+}
