@@ -11,22 +11,26 @@
 //   -For each zone:
 //       -Randomly pick one of the three categories
 //       -Randomly decide whether to add or remove an object
+//       -If adding: create a new event and put it in the list
+//       -If removing: randomly pick one from the list and remove it
+//       -Print out what occured during that time period
 
-// Define main function
-// Initialize a mpa to store solar system zone info, each associoated with an
+// Main function
+// 1) Initialize a map to store solar system zone info, each associoated with an
 // array of lists for planets, stars, and black holes
 
-// Open an external file to read data about solar system zones and to populate
-// the map If file does not open, print an error and exit
+// 2) Open an external file to read data about solar system zones and to
+// populate the map
+//  -If file does not open, print an error and exit
 
-// Read data from the file and populate the map
-// For each line, extract solar system zone and celestial body data
-// Each line contains zone, category, and event
+// 3) Read data from the file and populate the map
+//  -For each line, extract solar system zone and celestial body data
+//  -Each line contains zone, category, and event
 
-// Insert celestial bodies into the appropriate list in the array for their
+// 4) Insert celestial bodies into the appropriate list in the array for their
 // solar system zone
 
-// Close the file
+// 5) Close the file
 
 // Begin a time-based simulation for astronmical changes
 // For 50 time intervals
@@ -40,7 +44,35 @@
 
 // Simulate more complex astronomical changes like random events impacting the
 // solar system, eclipses, meteor showers, etc.
-
 // Wait or pause briefly to simulate the passage of time between intervals
-
 // End of main function
+
+#include <array>
+#include <fstream>
+#include <iostream>
+#include <list>
+#include <map>
+#include <string>
+using namespace std;
+
+void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
+                        int period) {
+  cout << "Simulating time period " << period << " million years.\n";
+  for (auto& [zone, bodies] : solarMap) {
+    bodies[0].push_back("Star event at period " + to_string(period));
+    bodies[1].push_back("Planet event at period " + to_string(period));
+    bodies[2].push_back("Black hole event at period " + to_string(period));
+  }
+}
+
+int main() {
+  // Intializing a map for the solar system map
+  map<string, array<list<string>, 3>> solarMap;
+
+  // Test data
+  solarMap["Inner Solar System"][0].push_back("");
+  solarMap["Outer Solar System"][1].push_back("");
+  solarMap["Kuiper Belt"][2].push_back("");
+
+  // Displaying intial state
+  for (const auto&) }
