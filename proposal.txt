@@ -9,3 +9,4 @@ Simulated events: This simulation will focus on three different events:
 1. Orbital shifts 
 2. Compositional changes of the planets
 3. Astronomical interactions
+
