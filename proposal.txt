@@ -1,12 +1,17 @@
 Project Overview:
-My project creates a solar system simulation designed to predict how celestial bodies move and evolve over the next 50 million years. It illustrates how  
+My project creates a solar system simulation designed to predict how celestial bodies move and evolve over time. 
+This simulation will run for 50 time periods, with each time period being 1 million years. 
+This program illustrates how astronomical changes affect celestial bodies, and overall our solar system.
 
 Implementation: 
-I will use an std :: map to store and manage data related to different celestial bodies across different solar system zones. This map will categorize celestial bodies into three std::lists representing stars, planets, and black holes. 
-The map will have the solar system zone name as its key and the map's value will be an array of these three lists. The three I chose for this simulation are the inner solar system, the outer solar system, and the Kuiper Belt.
+I will use an std :: map to store and manage data related to different celestial bodies across different solar system zones. 
+This map will categorize celestial bodies into three std::lists representing stars, planets, and black holes. The map will have the solar system zone name as its key and the map's value will be an array of these three lists. The three I chose for this simulation are the inner solar system, the outer solar system, and the Kuiper Belt. 
+The simulation read data from an external file containing over 100 entries describing celestial events or changes.
 
-Simulated events: This simulation will focus on three different events: 
+Simulated events: This simulation will focus on three different events:
 1. Orbital shifts 
 2. Compositional changes of the planets
 3. Astronomical interactions
 
+There will be a dedicated function that will handle the simulation logic for each time period. 
+The program will also display the initial state of each solar system zone and how they evolve after each time period.
