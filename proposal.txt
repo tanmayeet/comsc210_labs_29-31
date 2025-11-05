@@ -1,5 +1,11 @@
 Project Overview:
-My project creates a solar system simulation designed to predict how celestial bodies move and evolve over the next 50 million years. 
+My project creates a solar system simulation designed to predict how celestial bodies move and evolve over the next 50 million years. It illustrates how  
 
 Implementation: 
--stars, planets, black holes
+I will use an std :: map to store and manage data related to different celestial bodies across different solar system zones. This map will categorize celestial bodies into three std::lists representing stars, planets, and black holes. 
+The map will have the solar system zone name as its key and the map's value will be an array of these three lists. The three I chose for this simulation are the inner solar system, the outer solar system, and the Kuiper Belt.
+
+Simulated events: This simulation will focus on three different events: 
+1. Orbital shifts 
+2. Compositional changes of the planets
+3. Astronomical interactions
