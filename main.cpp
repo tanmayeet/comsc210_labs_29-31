@@ -63,10 +63,15 @@ int main() {
   // Intializing a map for the solar system map
   map<string, array<list<string>, 3>> solarMap;
 
+  // For randomly deciding whether to add or remove from list
+  srand(time(0));
+
+  // Add a function to read data from external file
+
   // Test data
-  solarMap["Inner Solar System"][0].push_back("");
-  solarMap["Outer Solar System"][1].push_back("");
-  solarMap["Kuiper Belt"][2].push_back("");
+  solarMap["Inner Solar System"][0].push_back("Sun");
+  solarMap["Outer Solar System"][1].push_back("Jupiter");
+  solarMap["Kuiper Belt"][2].push_back("BH-1");
 
   // Displaying intial state
   for (const auto& [zone, bodies] : solarMap) {
@@ -76,6 +81,7 @@ int main() {
     cout << "Black Holes: " << bodies[2].front() << "\n";
   }
   // Simulating for 50 time periods
+  // Want to do 1 through 50 to show a change instead of from 0 to 49
   for (int i = 1; i <= 50; i++) {
     simulateTimePeriod(solarMap, i);
   }
