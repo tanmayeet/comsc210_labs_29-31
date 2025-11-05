@@ -1,2 +1,5 @@
 Project Overview:
-My project creates a solar system simulation, a program design to predict how celestial bodies move and evolve over the next 50 million years. 
+My project creates a solar system simulation designed to predict how celestial bodies move and evolve over the next 50 million years. 
+
+Implementation: 
+-stars, planets, black holes
