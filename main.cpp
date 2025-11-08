@@ -67,6 +67,11 @@ int main() {
   srand(time(0));
 
   // Add a function to read data from external file
+  ifstream file("data.txt");
+  if (!file) {
+    cout << "Error opening data.txt\n";
+    return 1;
+  }
 
   // Test data
   solarMap["Inner Solar System"][0].push_back("Sun");
