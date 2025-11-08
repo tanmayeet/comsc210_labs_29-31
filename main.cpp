@@ -1,3 +1,6 @@
+// COMSC210 | Lab 29-31 | Tanmayee Chalamalasetti
+// IDE Used: VS Code
+
 // Include necesssary headers for file handling, data structures, etc.
 
 // Define a function to simulate astronomical changes over time
@@ -8,17 +11,17 @@
 //  -current time period
 
 // Logic
-// Begin a time-based simulation for astronmical changes for 50 time intervals
+// Begin a time-based simulation for astronomical changes for 50 time intervals
 //   -For each zone:
 //       -Simulate astronomical changes holistically
 //       -Randomly pick one of the three categories
 //       -Randomly decide whether to add or remove an object
 //       -If adding: create a new celestial body and put it in the list
 //       -If removing: randomly pick a body from the list and remove it
-//       -Print out what occured during that time period
+//       -Print out what occurred during that time period
 
 // Main function
-// 1) Initialize a map to store solar system zone info, each associoated with an
+// 1) Initialize a map to store solar system zone info, each associated with an
 // array of lists for planets, stars, and black holes
 
 // 2) Open an external file to read data about solar system zones and to
@@ -49,10 +52,17 @@
 #include <string>
 using namespace std;
 
+const int num_periods = 50;
+const int num_categories = 3;
+const int rand_range = 100;
+
 // Function prototype
 void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
                         int period);
 
+// simulateTimePeriod: Used to simulate astronomical changes for one time period
+// Arguments: map<string, array<list<string>, 3>>& solarMap,int period
+// Returns: nothing
 void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
                         int period) {
   cout << "Simulating time period " << period << " million years.\n";
@@ -63,9 +73,10 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
     // bodies[1].push_back("Planet event at period " + to_string(period));
     // bodies[2].push_back("Black hole event at period " + to_string(period));
 
-    int category = rand() % 3;
+    int category = rand() % num_categories;
     bool add = rand() % 2;
-    string name = "Body " + to_string(period) + "-" + to_string(rand() % 100);
+    string name =
+        "Body " + to_string(period) + "-" + to_string(rand() % rand_range);
     string categoryName;
 
     if (category == 0) {
@@ -94,7 +105,7 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
 }
 
 int main() {
-  // Intializing a map for the solar system map
+  // Initializing a map for the solar system map
   map<string, array<list<string>, 3>> solarMap;
 
   // For randomly deciding whether to add or remove from list
@@ -107,6 +118,8 @@ int main() {
     return 1;
   }
 
+  // We go through each line of the input file to extract info
+  // Format: zone, category, name
   string line;
   while (getline(file, line)) {
     int comma1 = 0, comma2 = 0;
@@ -131,16 +144,17 @@ int main() {
     } else {
       index = 2;
     }
+    // adding celestial body to the appropriate list in the zone
     solarMap[zone][index].push_back(name);
   }
   file.close();
 
-  // Test data
-  solarMap["Inner Solar System"][0].push_back("Sun");
-  solarMap["Outer Solar System"][1].push_back("Jupiter");
-  solarMap["Kuiper Belt"][2].push_back("BH-1");
+  // Test data from Lab 29
+  // solarMap["Inner Solar System"][0].push_back("Sun");
+  // solarMap["Outer Solar System"][1].push_back("Jupiter");
+  // solarMap["Kuiper Belt"][2].push_back("BH-1");
 
-  // Displaying intial state
+  // Displaying initial state of zone
   for (auto it = solarMap.begin(); it != solarMap.end(); it++) {
     string zone = it->first;
     const array<list<string>, 3>& bodies = it->second;
@@ -167,7 +181,7 @@ int main() {
 
   // Simulating for 50 time periods
   // Want to do 1 through 50 to show a change instead of from 0 to 49
-  for (int i = 1; i <= 50; i++) {
+  for (int i = 1; i <= num_periods; i++) {
     simulateTimePeriod(solarMap, i);
   }
   return 0;
