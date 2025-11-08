@@ -56,6 +56,16 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
     bodies[0].push_back("Star event at period " + to_string(period));
     bodies[1].push_back("Planet event at period " + to_string(period));
     bodies[2].push_back("Black hole event at period " + to_string(period));
+
+    for (auto& [zone, bodies] : solarMap) {
+      int category = rand() % 3;
+      bool add = rand() % 2;
+
+      string name = "Body " + to_string(period) + "-" + to_string(rand() & 100);
+      if (add) {
+        bodies[category].push_back(name);
+      }
+    }
   }
 }
 
