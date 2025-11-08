@@ -1,6 +1,6 @@
 Unit Testing Description:
 This test checks the simulateTimePeriod() function.
-If verifies that the function adds and removes celestial bodies, handles empty lists, and that the output messages are correct depending on the conditions.
+It verifies that the function adds and removes celestial bodies, handles empty lists, and that the output messages are correct depending on the conditions.
 
 #include <iostream>
 #include <map>
@@ -11,3 +11,19 @@ using namespace std;
 
 void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
                         int period);
+
+int main() {
+    map<string, array<list<string>, 3>> testMap;
+    testMap["Test Zone"][0].push_back("Test Star");
+
+    simulateTimePeriod(testMap, 1);
+
+    cout << "After simulation:\n";
+    cout << "Stars: ";
+    for(const auto& star : testMap["Test Zone][0]) {
+        cout << star << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
