@@ -2,6 +2,13 @@ Unit Testing Description:
 This test checks the simulateTimePeriod() function.
 It verifies that the function adds and removes celestial bodies, handles empty lists, and that the output messages are correct depending on the conditions.
 
+Detailed Description:
+The unit test is designed to verify the behavior of the simulateTimePeriod() function, which drives the core simulation logic of astronomical changes over time. The test initializes a simplified solar system map with a single zone labeled "Test Zone" containing one star named "Test Star".
+The function is then executed for one time period (1 million years), during which it randomly selects one of three celestial body categories (star, planet, or black hole) and randomly decides whether to add a body or remove an existing one. The test then checks that the function correctly modifies the appropriate list within the zone, handles empty lists without crashing, and prints the correct output message that reflects the action taken.
+After the simulation, the test prints the updated list of stars in "Test Zone" to confirm the result. This test ensuress that the function behaves correctly under controlled conditions and provides a reliable foundation for simulating more complex astronomical changes across multiple zones and time periods.
+
+//Driver function
+
 #include <iostream>
 #include <map>
 #include <array>
@@ -20,7 +27,7 @@ int main() {
 
     cout << "After simulation:\n";
     cout << "Stars: ";
-    for(const auto& star : testMap["Test Zone][0]) {
+    for(const auto& star : testMap["Test Zone"][0]) {
         cout << star << " ";
     }
     cout << endl;
