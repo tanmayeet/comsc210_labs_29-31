@@ -101,6 +101,23 @@ int main() {
     return 1;
   }
 
+  string zone, category, name;
+  while (getline(file, zone, ",")) {
+    getline(file, category, ",");
+    getline(file, name);
+
+    int index;
+    if (category == "star") {
+      index = 0;
+    } else if (category == "planet") {
+      index = 1;
+    } else {
+      index = 2;
+    }
+    solarMap[zone][index].push_back(name);
+  }
+  file.close();
+
   // Test data
   solarMap["Inner Solar System"][0].push_back("Sun");
   solarMap["Outer Solar System"][1].push_back("Jupiter");
