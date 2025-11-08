@@ -53,17 +53,35 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
                         int period) {
   cout << "Simulating time period " << period << " million years.\n";
   for (auto& [zone, bodies] : solarMap) {
-    bodies[0].push_back("Star event at period " + to_string(period));
-    bodies[1].push_back("Planet event at period " + to_string(period));
-    bodies[2].push_back("Black hole event at period " + to_string(period));
+    // bodies[0].push_back("Star event at period " + to_string(period));
+    // bodies[1].push_back("Planet event at period " + to_string(period));
+    // bodies[2].push_back("Black hole event at period " + to_string(period));
 
-    for (auto& [zone, bodies] : solarMap) {
-      int category = rand() % 3;
-      bool add = rand() % 2;
+    int category = rand() % 3;
+    bool add = rand() % 2;
+    string name = "Body " + to_string(period) + "-" + to_string(rand() % 100);
+    string categoryName;
 
-      string name = "Body " + to_string(period) + "-" + to_string(rand() & 100);
-      if (add) {
-        bodies[category].push_back(name);
+    if (category == 0) {
+      categoryName = "Star";
+    } else if (category == 1) {
+      categoryName = "Planet";
+    } else {
+      categoryName = "Black Hole";
+    }
+
+    if (add) {
+      bodies[category].push_back(name);
+      cout << "Added " << name << " to " << zone << " (" << categoryName
+           << ")\n";
+    } else {
+      if (!bodies[category].empty()) {
+        string removed = bodies[category].front();
+        bodies[category].pop_front();
+        cout << "Removed " << removed << " from " << zone << " ("
+             << categoryName << ")\n";
+      } else {
+        cout << "No " << categoryName << " to remove from " << zone << "\n";
       }
     }
   }
