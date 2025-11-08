@@ -137,10 +137,25 @@ int main() {
   // Displaying intial state
   for (const auto& [zone, bodies] : solarMap) {
     cout << "Zone: " << zone << "\n";
-    cout << "Stars: " << bodies[0].front() << "\n";
-    cout << "Planets: " << bodies[1].front() << "\n";
-    cout << "Black Holes: " << bodies[2].front() << "\n";
+    cout << "Stars: ";
+    for (const string& star : bodies[0]) {
+      cout << star << " ";
+    }
+    cout << "\n";
+
+    cout << "Planets: ";
+    for (const string& planet : bodies[1]) {
+      cout << planet << " ";
+    }
+    cout << "\n";
+
+    cout << "Black Holes: ";
+    for (const string& bh : bodies[2]) {
+      cout << bh << " ";
+    }
+    cout << "\n";
   }
+
   // Simulating for 50 time periods
   // Want to do 1 through 50 to show a change instead of from 0 to 49
   for (int i = 1; i <= 50; i++) {
