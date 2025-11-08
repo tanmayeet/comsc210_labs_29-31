@@ -1,0 +1,13 @@
+Unit Testing Description:
+This test checks the simulateTimePeriod() function.
+If verifies that the function adds and removes celestial bodies, handles empty lists, and that the output messages are correct depending on the conditions.
+
+#include <iostream>
+#include <map>
+#include <array>
+#include <list>
+#include <string>
+using namespace std;
+
+void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
+                        int period);

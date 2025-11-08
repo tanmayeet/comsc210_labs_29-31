@@ -49,10 +49,16 @@
 #include <string>
 using namespace std;
 
+// Function prototype
+void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
+                        int period);
+
 void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
                         int period) {
   cout << "Simulating time period " << period << " million years.\n";
-  for (auto& [zone, bodies] : solarMap) {
+  for (auto it = solarMap.begin(); it != solarMap.end(); it++) {
+    string zone = it->first;
+    array<list<string>, 3>& bodies = it->second;
     // bodies[0].push_back("Star event at period " + to_string(period));
     // bodies[1].push_back("Planet event at period " + to_string(period));
     // bodies[2].push_back("Black hole event at period " + to_string(period));
@@ -135,8 +141,11 @@ int main() {
   solarMap["Kuiper Belt"][2].push_back("BH-1");
 
   // Displaying intial state
-  for (const auto& [zone, bodies] : solarMap) {
+  for (auto it = solarMap.begin(); it != solarMap.end(); it++) {
+    string zone = it->first;
+    const array<list<string>, 3>& bodies = it->second;
     cout << "Zone: " << zone << "\n";
+
     cout << "Stars: ";
     for (const string& star : bodies[0]) {
       cout << star << " ";
