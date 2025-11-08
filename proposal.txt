@@ -5,7 +5,9 @@ This program illustrates how astronomical changes affect celestial bodies, and o
 
 Implementation: 
 I will use an std :: map to store and manage data related to different celestial bodies across different solar system zones. 
-This map will categorize celestial bodies into three std::lists representing stars, planets, and black holes. The map will have the solar system zone name as its key and the map's value will be an array of these three lists. The three I chose for this simulation are the inner solar system, the outer solar system, and the Kuiper Belt. 
+This map will categorize celestial bodies into three std::lists representing stars, planets, and black holes. 
+The map will have the solar system zone name as its key and the map's value will be an array of these three lists. 
+The three I chose for this simulation are the inner solar system, the outer solar system, and the Kuiper Belt. 
 The simulation read data from an external file containing over 100 entries describing celestial events or changes.
 
 Simulated events: This simulation will focus on three different events:
