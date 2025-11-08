@@ -101,10 +101,21 @@ int main() {
     return 1;
   }
 
-  string zone, category, name;
-  while (getline(file, zone, ",")) {
-    getline(file, category, ",");
-    getline(file, name);
+  string line;
+  while (getline(file, line)) {
+    int comma1 = 0, comma2 = 0;
+    for (int i = 0; i < line.length(); i++) {
+      if (line[i] == ',' && comma1 == 0) {
+        comma1 = i;
+      } else if (line[i] == ',' && comma1 != 0) {
+        comma2 = i;
+        break;
+      }
+    }
+
+    string zone = line.substr(0, comma1);
+    string category = line.substr(comma1 + 1, comma2 - comma1 - 1);
+    string name = line.substr(comma2 + 1);
 
     int index;
     if (category == "star") {
