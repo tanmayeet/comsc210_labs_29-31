@@ -93,8 +93,20 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
            << ")\n";
     } else {
       if (!bodies[category].empty()) {
-        string removed = bodies[category].front();
-        bodies[category].pop_front();
+        int size = bodies[category].size();
+        int randomIndex = rand() % size;
+        // defining an element at a random index to remove from the list
+
+        auto it = bodies[category].begin();
+        advance(it, randomIndex);
+        // iterates through the list from the start and advances 'it''s index to
+        // the element at index randomIndex
+
+        string removed = *it;
+        bodies[category].erase(it);
+        // sets the string to remove as the address of it, which is a data entry
+        // with all of a celestial body's info
+
         cout << "Removed " << removed << " from " << zone << " ("
              << categoryName << ")\n";
       } else {
