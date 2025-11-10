@@ -1,0 +1,9 @@
+Bugs/Mistakes
+
+Bug 1: Did not push data.txt into the alpha branch properly even though I was able to run my code locally
+Fix 1: Pushed it properly to the alpha branch so that my code reflected the data file as well
+
+Bug 2: When I was coding the main.cpp file during Stage 4, I was researching the best way to 
+Fix 2: 
+
+Bug 3: 
