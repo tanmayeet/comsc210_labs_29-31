@@ -60,6 +60,7 @@ const int rand_range = 100;
 void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
                         int period);
 void loadData(map<string, array<list<string>, 3>>& solarMap);
+void displayMap(map<string, array<list<string>, 3>>& solarMap);
 
 // simulateTimePeriod: Used to simulate astronomical changes for one time period
 // Arguments: map<string, array<list<string>, 3>>& solarMap,int period
@@ -92,10 +93,15 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
     }
 
     if (add) {
-      bodies[category].push_back(name);
-      cout << "Added " << name << " to " << zone << " (" << categoryName
-           << ")\n";
-    } else {
+      if (find(bodies[category].begin(), bodies[category].end(), name) ==
+          bodies[category].end()) {
+        bodies[category].push_back(name);
+        cout << "Added " << name << " to " << zone << " (" << categoryName
+             << ")\n";
+      }
+    }
+
+    else {
       if (!bodies[category].empty()) {
         int size = bodies[category].size();
         int randomIndex = rand() % size;
@@ -142,6 +148,12 @@ void loadData(map<string, array<list<string>, 3>>& solarMap) {
       }
     }
 
+    if (comma1 == -1 || comma2 == -1 || comma2 <= comma1 ||
+        comma2 >= line.length() - 1) {
+      cout << "Malformed line: " << line << "\n";
+      continue;
+    }
+
     string zone = line.substr(0, comma1);
     string category = line.substr(comma1 + 1, comma2 - comma1 - 1);
     string name = line.substr(comma2 + 1);
@@ -159,13 +171,7 @@ void loadData(map<string, array<list<string>, 3>>& solarMap) {
   file.close();
 }
 
-int main() {
-  // Initializing a map for the solar system map
-  map<string, array<list<string>, 3>> solarMap;
-  // For randomly deciding whether to add or remove from list
-  srand(time(0));
-  loadData(solarMap);
-
+void displayMap(map<string, array<list<string>, 3>>& solarMap) {
   // Displaying initial state of zone
   for (auto it = solarMap.begin(); it != solarMap.end(); it++) {
     string zone = it->first;
@@ -190,6 +196,16 @@ int main() {
     }
     cout << "\n";
   }
+}
+
+int main() {
+  // Initializing a map for the solar system map
+  map<string, array<list<string>, 3>> solarMap;
+  // For randomly deciding whether to add or remove from list
+  srand(time(0));
+  loadData(solarMap);
+  displayMap(solarMap);
+
   // Simulating for 50 time periods
   // Want to do 1 through 50 to show a change instead of from 0 to 49
   for (int i = 1; i <= num_periods; i++) {
