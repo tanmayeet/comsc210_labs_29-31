@@ -78,16 +78,16 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
     string name =
         "Body " + to_string(period) + "-" + to_string(rand() % rand_range);
     string categoryName;
-    while {
-      if (category == 0) {
-        categoryName = "Star";
-      } else if (category == 1) {
-        categoryName = "Planet";
-      } else if (category == 2) {
-        categoryName = "Black Hole";
-      } else {
-        cout << "Invalid entry for this data set. Please try again.\n";
-      }
+
+    if (category == 0) {
+      categoryName = "Star";
+    } else if (category == 1) {
+      categoryName = "Planet";
+    } else if (category == 2) {
+      categoryName = "Black Hole";
+    } else {
+      cout << "Invalid category for this data set. Skipping this line.\n";
+      continue;
     }
 
     if (add) {
