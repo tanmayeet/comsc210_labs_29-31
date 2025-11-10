@@ -3,7 +3,8 @@ Bugs/Mistakes
 Bug 1: Did not push data.txt into the alpha branch properly even though I was able to run my code locally
 Fix 1: Pushed it properly to the alpha branch so that my code reflected the data file as well
 
-Bug 2: When I was coding the main.cpp file during Stage 4, I was researching the best way to 
-Fix 2: 
+Bug 2: When I was coding the main.cpp file during Stage 3, I was researching the best way to iterate through the map, and originally used structured bindings, despite it being in C++17. 
+Fix 2: After I compiled and ran my code and saw it did not run as the compiler only took in C++11 (and remembering we are only supposed to use C++11 in this course), I switched to a traditional iterator-based loop, which allowed my code to function as I intended it to.
 
-Bug 3: 
+Bug 3: When I wrote the beta branch, I originally did not have all of my work from the alpha branch saved, so when I created the beta branch, it did not copy all of my files from the alpha branch. 
+Fix 3: I ended up just deleting the beta branch I had made, saving my alpha branch code properly, and then going back to create the beta branch, which now has all of the appropriate files needed for this stage of the lab.
