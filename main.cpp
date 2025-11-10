@@ -59,6 +59,7 @@ const int rand_range = 100;
 // Function prototype
 void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
                         int period);
+void loadData(map<string, array<list<string>, 3>>& solarMap);
 
 // simulateTimePeriod: Used to simulate astronomical changes for one time period
 // Arguments: map<string, array<list<string>, 3>>& solarMap,int period
@@ -119,18 +120,12 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
   }
 }
 
-int main() {
-  // Initializing a map for the solar system map
-  map<string, array<list<string>, 3>> solarMap;
-
-  // For randomly deciding whether to add or remove from list
-  srand(time(0));
-
-  // Add a function to read data from external file
+// Add a function to read data from external file
+void loadData(map<string, array<list<string>, 3>>& solarMap) {
   ifstream file("data.txt");
   if (!file) {
     cout << "Error opening data.txt\n";
-    return 1;
+    exit(1);
   }
 
   // We go through each line of the input file to extract info
@@ -150,7 +145,6 @@ int main() {
     string zone = line.substr(0, comma1);
     string category = line.substr(comma1 + 1, comma2 - comma1 - 1);
     string name = line.substr(comma2 + 1);
-
     int index;
     if (category == "star") {
       index = 0;
@@ -163,11 +157,14 @@ int main() {
     solarMap[zone][index].push_back(name);
   }
   file.close();
+}
 
-  // Test data from Lab 29
-  // solarMap["Inner Solar System"][0].push_back("Sun");
-  // solarMap["Outer Solar System"][1].push_back("Jupiter");
-  // solarMap["Kuiper Belt"][2].push_back("BH-1");
+int main() {
+  // Initializing a map for the solar system map
+  map<string, array<list<string>, 3>> solarMap;
+  // For randomly deciding whether to add or remove from list
+  srand(time(0));
+  loadData(solarMap);
 
   // Displaying initial state of zone
   for (auto it = solarMap.begin(); it != solarMap.end(); it++) {
@@ -193,7 +190,6 @@ int main() {
     }
     cout << "\n";
   }
-
   // Simulating for 50 time periods
   // Want to do 1 through 50 to show a change instead of from 0 to 49
   for (int i = 1; i <= num_periods; i++) {
