@@ -139,11 +139,11 @@ void loadData(map<string, array<list<string>, 3>>& solarMap) {
   // Format: zone, category, name
   string line;
   while (getline(file, line)) {
-    int comma1 = 0, comma2 = 0;
+    int comma1 = -1, comma2 = -1;
     for (int i = 0; i < line.length(); i++) {
-      if (line[i] == ',' && comma1 == 0) {
+      if (line[i] == ',' && comma1 == -1) {
         comma1 = i;
-      } else if (line[i] == ',' && comma1 != 0) {
+      } else if (line[i] == ',' && comma1 != -1) {
         comma2 = i;
         break;
       }
@@ -173,7 +173,6 @@ void loadData(map<string, array<list<string>, 3>>& solarMap) {
 }
 
 void displayMap(map<string, array<list<string>, 3>>& solarMap) {
-  // Displaying initial state of zone
   for (auto it = solarMap.begin(); it != solarMap.end(); it++) {
     string zone = it->first;
     const array<list<string>, 3>& bodies = it->second;
@@ -205,12 +204,14 @@ int main() {
   // For randomly deciding whether to add or remove from list
   srand(time(0));
   loadData(solarMap);
-  displayMap(solarMap);
 
   // Simulating for 50 time periods
   // Want to do 1 through 50 to show a change instead of from 0 to 49
   for (int i = 1; i <= num_periods; i++) {
     simulateTimePeriod(solarMap, i);
   }
+  cout << endl;
+  cout << "Final State of the Solar System\n";
+  displayMap(solarMap);
   return 0;
 }
