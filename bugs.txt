@@ -1,4 +1,4 @@
-Bugs/Mistakes
+Bugs/Mistakes/Places I Could Improve Upon
 
 Bug 1: Did not push data.txt into the alpha branch properly even though I was able to run my code locally
 Fix 1: Pushed it properly to the alpha branch so that my code reflected the data file as well
@@ -7,4 +7,13 @@ Bug 2: When I was coding the main.cpp file during Stage 3, I was researching the
 Fix 2: After I compiled and ran my code and saw it did not run as the compiler only took in C++11 (and remembering we are only supposed to use C++11 in this course), I switched to a traditional iterator-based loop, which allowed my code to function as I intended it to.
 
 Bug 3: When I wrote the beta branch, I originally did not have all of my work from the alpha branch saved, so when I created the beta branch, it did not copy all of my files from the alpha branch. 
-Fix 3: I ended up just deleting the beta branch I had made, saving my alpha branch code properly, and then going back to create the beta branch, which now has all of the appropriate files needed for this stage of the lab.
+Fix 3: I ended up just deleting the beta branch (using "git branch -D beta") I had made, then saving my alpha branch code properly, and then going back to create the beta branch, which now has all of the appropriate files needed for this stage of the project.
+
+Bug 4: After reviewing my main.cpp code in the alpha branch, I realize that my code always removes the first item in the list, which makes it not truly random, as I had intended in my proposal.
+Fix 4: I first initialized a randomIndex so that we can remove the element at that random index. Then, I set an iterator to start at the beginning of the list and then advance to wherever randomIndex is. Finally, I set a string called removed to the *it and called .erase(), so that we could remove the contents at that random index.
+
+Bug 5: Did not add input validation for the data.txt file.
+Fix 5: In this case, my data entries actually do match the the format I intended in the code. However, if I were to perhaps use a different data file, I would want to account for any invalid entries, formatting differences/errors, etc. 
+
+Bug 6: In simulateTimePeriod(), when selecting what option (0, 1, or other numbers) are assigned to its respective celestial body, I wrote some if else statements, but then set my else statement to consider the category as a black hole. However, this does not account for the fact that there could be other data entries (I wanted to add more complex celestial bodies and maybe even other zones in the solar system). 
+Fix 6: I created another else if condition for black holes to check if it is =2, and then put the else to an invalid entry.
