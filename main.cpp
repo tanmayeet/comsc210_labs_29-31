@@ -98,7 +98,7 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
           bodies[category].end()) {
         bodies[category].push_back(name);
         cout << "Added " << name << " to " << zone << " (" << categoryName
-             << ")\n";
+             << ").\n";
       }
     }
 
@@ -119,9 +119,9 @@ void simulateTimePeriod(map<string, array<list<string>, 3>>& solarMap,
         // with all of a celestial body's info
 
         cout << "Removed " << removed << " from " << zone << " ("
-             << categoryName << ")\n";
+             << categoryName << ").\n";
       } else {
-        cout << "No " << categoryName << " to remove from " << zone << "\n";
+        cout << "No " << categoryName << " to remove from " << zone << ".\n";
       }
     }
   }
@@ -139,6 +139,10 @@ void loadData(map<string, array<list<string>, 3>>& solarMap) {
   // Format: zone, category, name
   string line;
   while (getline(file, line)) {
+    if (line.empty()) {
+      continue;
+    }
+
     int comma1 = -1, comma2 = -1;
     for (int i = 0; i < line.length(); i++) {
       if (line[i] == ',' && comma1 == -1) {
@@ -180,21 +184,21 @@ void displayMap(map<string, array<list<string>, 3>>& solarMap) {
 
     cout << "Stars: ";
     for (const string& star : bodies[0]) {
-      cout << star << " ";
+      cout << star << ", ";
     }
     cout << "\n";
 
     cout << "Planets: ";
     for (const string& planet : bodies[1]) {
-      cout << planet << " ";
+      cout << planet << ", ";
     }
     cout << "\n";
 
     cout << "Black Holes: ";
     for (const string& bh : bodies[2]) {
-      cout << bh << " ";
+      cout << bh << ", ";
     }
-    cout << "\n";
+    cout << "\n\n";
   }
 }
 
