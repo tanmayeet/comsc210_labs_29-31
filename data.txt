@@ -1,0 +1,98 @@
+Inner Solar System,star,Sun
+Inner Solar System,star,Alpha-1
+Inner Solar System,star,Helios
+Inner Solar System,star,Ignis
+Inner Solar System,star,Solara
+Inner Solar System,star,Flareon
+Inner Solar System,star,Pyros
+Inner Solar System,star,Corona-X
+Inner Solar System,star,Blaze
+Inner Solar System,star,Photon
+
+Inner Solar System,planet,Mercury
+Inner Solar System,planet,Venus
+Inner Solar System,planet,Earth
+Inner Solar System,planet,Mars
+Inner Solar System,planet,Gaia
+Inner Solar System,planet,Terra-2
+Inner Solar System,planet,Ignitia
+Inner Solar System,planet,Volcanis
+Inner Solar System,planet,Crystalis
+Inner Solar System,planet,Orbitron
+
+Inner Solar System,blackhole,IS-BH-1
+Inner Solar System,blackhole,IS-BH-2
+Inner Solar System,blackhole,IS-BH-3
+Inner Solar System,blackhole,IS-BH-4
+Inner Solar System,blackhole,IS-BH-5
+Inner Solar System,blackhole,IS-BH-6
+Inner Solar System,blackhole,IS-BH-7
+Inner Solar System,blackhole,IS-BH-8
+Inner Solar System,blackhole,IS-BH-9
+Inner Solar System,blackhole,IS-BH-10
+
+Outer Solar System,star,OS-Star-1
+Outer Solar System,star,OS-Star-2
+Outer Solar System,star,OS-Star-3
+Outer Solar System,star,OS-Star-4
+Outer Solar System,star,OS-Star-5
+Outer Solar System,star,OS-Star-6
+Outer Solar System,star,OS-Star-7
+Outer Solar System,star,OS-Star-8
+Outer Solar System,star,OS-Star-9
+Outer Solar System,star,OS-Star-10
+
+Outer Solar System,planet,Jupiter
+Outer Solar System,planet,Saturn
+Outer Solar System,planet,Uranus
+Outer Solar System,planet,Neptune
+Outer Solar System,planet,Zephyrus
+Outer Solar System,planet,Chronos
+Outer Solar System,planet,Titanis
+Outer Solar System,planet,Hyperion
+Outer Solar System,planet,Glaciera
+Outer Solar System,planet,Stratos
+
+Outer Solar System,blackhole,OS-BH-1
+Outer Solar System,blackhole,OS-BH-2
+Outer Solar System,blackhole,OS-BH-3
+Outer Solar System,blackhole,OS-BH-4
+Outer Solar System,blackhole,OS-BH-5
+Outer Solar System,blackhole,OS-BH-6
+Outer Solar System,blackhole,OS-BH-7
+Outer Solar System,blackhole,OS-BH-8
+Outer Solar System,blackhole,OS-BH-9
+Outer Solar System,blackhole,OS-BH-10
+
+Kuiper Belt,star,KB-Star-1
+Kuiper Belt,star,KB-Star-2
+Kuiper Belt,star,KB-Star-3
+Kuiper Belt,star,KB-Star-4
+Kuiper Belt,star,KB-Star-5
+Kuiper Belt,star,KB-Star-6
+Kuiper Belt,star,KB-Star-7
+Kuiper Belt,star,KB-Star-8
+Kuiper Belt,star,KB-Star-9
+Kuiper Belt,star,KB-Star-10
+
+Kuiper Belt,planet,Pluto
+Kuiper Belt,planet,Eris
+Kuiper Belt,planet,Haumea
+Kuiper Belt,planet,Makemake
+Kuiper Belt,planet,Orcus
+Kuiper Belt,planet,Varuna
+Kuiper Belt,planet,Quaoar
+Kuiper Belt,planet,Sedna
+Kuiper Belt,planet,Gonggong
+Kuiper Belt,planet,Ixion
+
+Kuiper Belt,blackhole,KB-BH-1
+Kuiper Belt,blackhole,KB-BH-2
+Kuiper Belt,blackhole,KB-BH-3
+Kuiper Belt,blackhole,KB-BH-4
+Kuiper Belt,blackhole,KB-BH-5
+Kuiper Belt,blackhole,KB-BH-6
+Kuiper Belt,blackhole,KB-BH-7
+Kuiper Belt,blackhole,KB-BH-8
+Kuiper Belt,blackhole,KB-BH-9
+Kuiper Belt,blackhole,KB-BH-10

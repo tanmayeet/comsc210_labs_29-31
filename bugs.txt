@@ -1,0 +1,39 @@
+Bugs/Mistakes/Places I Could Improve Upon
+
+Note: I don't remember every bug I made when I wrote the code as I did not push every bug I made to GitHub, so some of these bugs also include places I can improve upon or how I can change my code so it can be applied in a more complex way.
+
+Bug 1: Did not push data.txt into the alpha branch properly even though I was able to run my code locally
+Fix 1: Pushed it properly to the alpha branch so that my code reflected the data file as well
+
+Bug 2: When I was coding the main.cpp file during Stage 3, I was researching the best way to iterate through the map, and originally used structured bindings, despite it being in C++17. 
+Fix 2: After I compiled and ran my code and saw it did not run as the compiler only took in C++11 (and remembering we are only supposed to use C++11 in this course), I switched to a traditional iterator-based loop, which allowed my code to function as I intended it to.
+
+Bug 3: When I wrote the beta branch, I originally did not have all of my work from the alpha branch saved, so when I created the beta branch, it did not copy all of my files from the alpha branch. 
+Fix 3: I ended up just deleting the beta branch (using "git branch -D beta") I had made, then saving my alpha branch code properly, and then going back to create the beta branch, which now has all of the appropriate files needed for this stage of the project.
+
+Bug 4: After reviewing my main.cpp code in the alpha branch, I realize that my code always removes the first item in the list, which makes it not truly random, as I had intended in my proposal.
+Fix 4: I first initialized a randomIndex so that we can remove the element at that random index. Then, I set an iterator to start at the beginning of the list and then advance to wherever randomIndex is. Finally, I set a string called removed to the *it and called .erase(), so that we could remove the contents at that random index.
+
+Bug 5: Did not add input validation for the data.txt file.
+Fix 5: In this case, my data entries actually do match the format I intended in the code. However, if I were to perhaps use a different data file, I would want to account for any invalid entries, formatting differences/errors, etc. 
+
+Bug 6: In simulateTimePeriod(), when selecting what option (0, 1, or other numbers) are assigned to its respective celestial body, I wrote some if else statements, but then set my else statement to consider the category as a black hole. However, this does not account for the fact that there could be other data entries (Maybe someone wanted to add more complex data entries later on, or there was a typo in the data.txt file). Essentially, I did not handle the case where there could be invalid category values in simulateTimePeriod(). 
+Fix 6: I created another else if condition for black holes to check if it is = 2, and then put the else to an invalid category (for this data.txt file) and skipped the line to continue onto the next data entry. Eventually, if someone wanted to make a more complex program to include other data entries and such, we could continue to add more else if statements and update the code accordingly to account for that.
+
+Bug 7: Not necessarily a mistake, but I could have done a better job presenting the results of the simulation in a nicer way. For example, adding a final state output after each time period would have been quite helpful to someone using this simulation.
+Fix 7: To improve readability and usefulness of the simulation, I plan to add a final display loop at the end of main() that prints the contents of each zone after all of the 50 time periods. This would prove more useful to the user and help them understand how the system evolved over time better and enhance the learning experience.
+
+Bug 8: When I initially wrote the code for this simulation to use the entries from data.txt, the code originally only opened the data.txt file, but I realized it was not actually using those entries to run the simulation and populate the map. 
+Fix 8: I fixed this to parse each line of data.txt to extract the info from each data entry and then insert it into the correct list within the map. This ensured that the simulation actually used the data it was supposed to for the simulation to run as intended.
+
+Bug 9: My code currently isn't modularized.
+Fix 9: Most of my logic for this simulation currently resides in main() or in the simulateTimePeriod function. Because this is a small project, it does not pose any huge issues, but I could work to break the code into more specific functions, which would help someone who is looking at this code and trying to improve upon it understand the code better. Also, if the simulation were to be expanded, it would help keep the code more uniform.
+
+Bug 10: I initially hardcoded some of the values in the code (like num_categories, etc.).
+Fix 10: I changed the code to use global constants instead. Over the years, I have often hardcoded values, but understand the reason why this is not sustainable and am working to be more mindful of not changing it so my code is more easily updatable.
+
+Bug 11: My code does not currently check for duplicate entries when adding celestial bodies, which may not accurately reflect realistic astronomical behavior.
+Fix 11: In my simulateTimePeriod() function, I added some code that checks if the name already exists in the list using find().
+
+Bug 12: When writing the modularized loadData() function, I accidentally had my code for using the data for the simulation within the for loop for reading the file.
+Fix 12: I moved it out of the for loop and added validation for faulty data entries.
